@@ -6,7 +6,7 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-const ADMIN_PASSWORD = "admin123";
+const ADMIN_PASSWORD = "admin$888";
 const COLOR_PALETTE = [
   "#FF6B6B","#FF9F43","#F9CA24","#6AB04C","#48DBFB",
   "#54A0FF","#5F27CD","#C56BFF","#FF9FF3","#00D2D3",
