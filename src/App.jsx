@@ -66,7 +66,22 @@ export default function App() {
 
   // ---- LOAD ALL DATA ----
   useEffect(() => {
-    loadAll();
+    loadAll().then(() => {
+      // Check if saved name still exists in DB
+      const savedName = localStorage.getItem("freetime_name");
+      if (savedName) {
+        supabase.from("people").select("name").eq("name", savedName).single()
+          .then(({ data }) => {
+            if (!data) {
+              // Name was deleted by admin — clear and reset
+              localStorage.removeItem("freetime_name");
+              localStorage.removeItem("freetime_color");
+              setMyName("");
+              setMyColor("");
+            }
+          });
+      }
+    });
     // Real-time subscriptions
     const peopleSub = supabase.channel("people_changes")
       .on("postgres_changes", { event: "*", schema: "public", table: "people" }, loadPeople)
