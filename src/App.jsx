@@ -363,7 +363,7 @@ export default function App() {
             </div>
             {isOwn && (
               <div style={s.row}>
-                <input style={{ ...s.inputSm, flex: 1 }} placeholder="e.g. Football 3–5pm"
+                <input style={{ ...s.inputSm, flex: 1 }} placeholder="e.g. Kumon 3–5pm"
                   value={inputValues[day] || ""}
                   onChange={e => setInputValues(v => ({ ...v, [day]: e.target.value }))}
                   onKeyDown={e => e.key === "Enter" && addActivity(person, day)} />
